@@ -16,13 +16,15 @@ To write a python program for simulating ARP protocols using TCP.
 ## Developed : MIDHUN AZHAHU RAJA P
 ## Reg no : 212222240066
 
-
- # Developed By : kishore.S
- # Register Number : 22008388
 import socket
 s=socket.socket()
 s.bind(('localhost',8000))
-@@ -31,15 +32,17 @@ while True:
+s.listen(5)
+c,addr=s.accept()
+address={"165.165.80.80":"6A:08:AA:C2","165.165.79.1":"8A:BC:E3:FA"};
+while True:
+    ip=c.recv(1024).decode()
+    try:
         c.send(address[ip].encode())
     except KeyError:
         c.send("Not Found".encode())
